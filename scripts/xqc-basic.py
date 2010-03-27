@@ -19,10 +19,15 @@ which returns the numbers from 1 to 100 inclusive.
 This is based on an example script of the same name from XQC.
 """
 
+import sys
 import xqpy
 
 def main():
-    impl = xqpy.Implementation()
+    if len(sys.argv) == 2:
+        impl = xqpy.Implementation(sys.argv[1])
+    else:
+        impl = xqpy.Implementation()
+
     expr = impl.prepare("1 to 100")
     for val in expr.execute():
         print val

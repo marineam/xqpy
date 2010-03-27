@@ -35,8 +35,3 @@ class XQillaImplementation(base.Implementation):
     def __init__(self):
         ptr = lib.createXQillaXQCImplementation(xqc.XQC_VERSION_NUMBER)
         super(XQillaImplementation, self).__init__(ptr.contents)
-
-
-def XQC_Implementation():
-    ptr = lib.createXQillaXQCImplementation(xqc.XQC_VERSION_NUMBER)
-    return ptr.contents

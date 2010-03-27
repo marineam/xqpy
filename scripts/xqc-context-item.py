@@ -20,10 +20,15 @@ context item.
 This is based on an example script of the same name from XQC.
 """
 
+import sys
 import xqpy
 
 def main():
-    impl = xqpy.Implementation()
+    if len(sys.argv) == 2:
+        impl = xqpy.Implementation(sys.argv[1])
+    else:
+        impl = xqpy.Implementation()
+
     expr = impl.prepare("foo/bar/@baz")
     doc = impl.parse_document("<foo><bar baz='hello'/></foo>")
     context = expr.create_context()

@@ -23,7 +23,7 @@ def Implementation(name="XQilla"):
     The Implementation object is the entry point into the XQuery
     library. It provides methods for creating the other possible types
     of objects. Currently there are two libraries that can be used as
-    the backend: XQilla and Zorba. (Only XQilla is implemented though)
+    the backend: XQilla and Zorba. XQilla is currently the default.
 
     See xqpy.base.Implementation for the API.
     """
@@ -31,6 +31,8 @@ def Implementation(name="XQilla"):
     name = name.lower()
     if name == "xqilla":
         from xqpy.xqilla import XQillaImplementation as _Implementation
+    elif name == "zorba":
+        from xqpy.zorba import ZorbaImplementation as _Implementation
     else:
         raise UnknownImplemenation("Unknown implementation %s" % name)
 
